@@ -1,7 +1,7 @@
 Command-Line Expense Tracker
 ============================
 
-A simple yet powerful command-line tool built with Python to help you track and manage your personal expenses. This application uses the pandas library to store and manipulate data, which is saved in a local tracker.csv file.
+A simple yet powerful command-line tool built with Python to help you track and manage your personal expenses. This application uses the `pandas` library to store and manipulate data, which is saved in a local `tracker.csv` file.
 
 Features
 --------
@@ -22,85 +22,96 @@ Features
 Installation
 ------------
 
-1.  **Clone the repository or download the files** into a local directory.
+To make the tool accessible as a simple command (`expense-tracker`) from anywhere in your terminal, you need to install it as a Python package.
+
+1.  **Save the `setup.py` file** in the same directory as `cli.py` and `expense\_tracker.py`.
     
-2.  python -m venv venvsource venv/bin/activate # On Windows, use \`venv\\Scripts\\activate\`
+2.  **Set up a virtual environment** (highly recommended):
+    ```
+      python -m venv venv
+      source venv/bin/activate # On Windows, use \`venv\\Scripts\\activate\
+    ```
     
-3.  pip install pandas
+3.  **Install the project in "editable" mode.** This command links the `expense-tracker` command to your source code. The `-e` flag means any changes you make to your Python files will be immediately available.
+    ```
+        pip install -e .
+    ```
+    (The `.` refers to the current directory where `setup.py` is located).
     
+
+After installation, you can run the commands as described below from any directory.
 
 Usage
 -----
 
-All commands are run from your terminal using cli.py.
+All commands are now run using the `expense-tracker` command.
 
 ### Add an Expense
 
-To add a new expense, use the add command with the amount, description, and an optional category.
-
 **Syntax:**
 
-
-python cli.py add -m  -d "" -c ""   
+```
+expense-tracker add -m <amount> -d "<description>" -c "<category>"
+```
 
 **Example:**
 
-python cli.py add -m 45.50 -d "Dinner with friends" -c "Food"
+```
+expense-tracker add -m 45.50 -d "Dinner with friends" -c "Food"
+```
 
 If no category is provided, it defaults to "Misc".
 
 ### List Expenses
 
-To see a list of all your recorded expenses, use the list command.
-
 **List all expenses:**
 
-python cli.py list
+```
+expense-tracker list
+```
 
 **Filter by month:** (e.g., for September)
 
-python cli.py list -m 9
+```
+expense-tracker list -m 9
+```
 
 **Filter by category:**
 
-python cli.py list -c "Groceries"
-
-**Filter by both month and category:**
-
-python cli.py list -m 9 -c "Groceries"
+```
+expense-tracker list -c "Groceries"
+```
 
 ### Summarize Expenses
 
-To get a summary of your total spending, use the summary command. It supports the same filters as the list command.
-
 **Get a summary of all expenses:**
 
-python cli.py summary
+```
+expense-tracker summary
+```
 
-**Get a summary for a specific month:** (e.g., for September)
+**Get a summary for a specific month:**
 
-python cli.py summary -m 9
-
-**Get a summary for a specific category:**
-
-python cli.py summary -c "Bills"
+```
+expense-tracker summary -m 9
+```
 
 ### Delete an Expense
 
-To delete an expense, you first need its ID, which you can get from the list command. Then, use the delete command.
-
 **Example:** (Deletes the expense with ID: 3)
 
-python cli.py delete --id 3
+```
+expense-tracker delete --id 3
+```
 
 ### Export Expenses
 
-To export all your data to a new CSV file, use the export command.
-
 **Example:**
 
-python cli.py export my_expenses_backup
+```
+expense-tracker export my_expenses_backup
+```
 
-This will create a new file named my\_expenses\_backup.csv in the same directory.
+This will create a new file named `my_expenses_backup.csv`.
 
 Project: https://roadmap.sh/projects/expense-tracker
