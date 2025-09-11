@@ -102,3 +102,5 @@ To export all your data to a new CSV file, use the export command.
 python cli.py export my_expenses_backup
 
 This will create a new file named my\_expenses\_backup.csv in the same directory.
+
+Project: https://roadmap.sh/projects/expense-tracker
