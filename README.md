@@ -22,9 +22,14 @@ Features
 Installation
 ------------
 
+Start by cloning the repository in your desired directory
+```
+  git clone github.com/pedroheringerr/expense-tracker.git
+```
+
 To make the tool accessible as a simple command (`expense-tracker`) from anywhere in your terminal, you need to install it as a Python package.
 
-1.  **Save the `setup.py` file** in the same directory as `cli.py` and `expense\_tracker.py`.
+1.  **Make sure the `setup.py` file** is in the same directory as `cli.py` and `expense_tracker.py`.
     
 2.  **Set up a virtual environment** (highly recommended):
     ```
